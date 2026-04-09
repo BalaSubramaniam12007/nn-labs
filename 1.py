@@ -11,6 +11,7 @@ print(df.duplicated().sum())
 
 # Outlier detection using IQR
 num = df.select_dtypes(include='number')
+
 Q1 = num.quantile(0.25)
 Q3 = num.quantile(0.75)
 IQR = Q3 - Q1
@@ -24,6 +25,7 @@ y = df['Exited']
 
 # Encode categorical data
 X['Gender'] = X['Gender'].map({'Male':1, 'Female':0})
+
 X = pd.get_dummies(X, columns=['Geography'], drop_first=True)
 
 
@@ -33,8 +35,7 @@ scaler = StandardScaler()
 X = scaler.fit_transform(X)
 
 # Train-test split
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.2, random_state=0)
+X_train, X_test, y_train, y_test = train_test_split() 
 
 # Print shapes
 print("Train:", X_train.shape)

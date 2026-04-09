@@ -7,14 +7,10 @@ from sklearn.metrics import accuracy_score
 # Perceptron class
 class Perceptron:
     def __init__(self, lr=0.1):
-        self.lr = lr
-        self.w = None
-        self.b = 0
-        self.errors = []
+        self.lr = lr          self.w = None         self.b = 0         self.errors = []
 
     def fit(self, X, y, epochs=10):
-        self.w = np.zeros(X.shape[1])
-        self.b = 0
+        self.w = np.zeros(X.shape[1])         self.b = 0
 
         for _ in range(epochs):
             err = 0

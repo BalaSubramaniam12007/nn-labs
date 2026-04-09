@@ -24,6 +24,26 @@ for i in range(len(X1)):
 f1 = np.array(f1)
 f2 = np.array(f2)
 
+
+
+
+
+
+# Linear model (training)
+A = np.column_stack((f1, f2))
+W = np.linalg.pinv(A).dot(y)
+
+# Predictions
+pred = np.round(A.dot(W))
+
+
+
+
+
+
+
+
+
 # Plot (optional but useful for exam)
 plt.subplot(1,2,1)
 plt.scatter(X1, X2)
@@ -34,13 +54,6 @@ plt.scatter(f1, f2)
 plt.title("After RBF")
 
 plt.show()
-
-# Linear model (training)
-A = np.column_stack((f1, f2, np.ones(len(f1))))
-W = np.linalg.pinv(A).dot(y)
-
-# Predictions
-pred = np.round(A.dot(W))
 
 print("Predictions:", pred)
 print("Actual:", y)

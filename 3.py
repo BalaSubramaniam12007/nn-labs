@@ -1,9 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# XOR dataset
-x = np.array([[0,0,1,1],[0,1,0,1]])
-y = np.array([[0,1,1,0]])
 
 # Network size
 n_x, n_h, n_y = 2, 2, 1
@@ -40,7 +37,6 @@ for _ in range(10000):
 
     # Update weights
     W1 -= lr * dW1
-    W2 -= lr * dW2
 
 
 # Loss graph
@@ -51,5 +47,6 @@ plt.show()
 
 # Prediction
 print("Predictions:")
+
 A2 = sigmoid(np.dot(W2, sigmoid(np.dot(W1, X))))
 print(np.round(A2))
